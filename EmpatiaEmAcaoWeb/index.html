@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empatia em Ação</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container">
+    <header>
+      <h1>Empatia em Ação</h1>
+      <div id="hud">
+        <span id="empatia">Empatia: 0</span>
+        <span id="points">Pontos: 0</span>
+      </div>
+    </header>
+
+    <main>
+      <div id="phase-name">Fase: 1 - Identificação de sinais</div>
+      <div id="dialogue"></div>
+      <div id="choices">
+        <button onclick="makeChoice(1)">Escolha 1</button>
+        <button onclick="makeChoice(2)">Escolha 2</button>
+        <button onclick="makeChoice(3)">Escolha 3</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/player.js"></script>
+  <script src="js/phases.js"></script>
+  <script src="js/dialogue.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/economy.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
