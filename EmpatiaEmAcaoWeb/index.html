@@ -1,49 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empatia em Ação</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #7a4d9c;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-            margin: 10px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Empatia em Ação</h1>
-        <p>Conscientização sobre a violência contra a mulher</p>
-    </header>
-    <section>
-        <h2>O que é violência contra a mulher?</h2>
-        <p>A violência contra a mulher é qualquer ato de violência baseado no gênero que resulta em dano ou sofrimento físico, sexual ou psicológico para a mulher.</p>
-    </section>
-    <footer>
-        <p>&copy; 2025 Empatia em Ação</p>
-    </footer>
-</body>
-</html>
+const scenes = [
+  {
+    description: "Você vê alguém sofrendo bullying na escola. O que você faz?",
+    choices: [
+      { text: "Intervir e apoiar a vítima", next: 1 },
+      { text: "Ignorar e seguir em frente", next: 2 }
+    ]
+  },
+  {
+    description: "Você ofereceu apoio! A vítima se sente melhor.",
+    choices: []
+  },
+  {
+    description: "Você ignorou. A vítima continua sofrendo e você se sente mal.",
+    choices: []
+  }
+];
+
+let currentScene = 0;
+
+function renderScene() {
+  const scene = scenes[currentScene];
+  document.getElementById("description").textContent = scene.description;
+
+  const choicesDiv = document.getElementById("choices");
+  choicesDiv.innerHTML = "";
+  scene.choices.forEach(choice => {
+    const btn = document.createElement("button");
+    btn.textContent = choice.text;
+    btn.onclick = () => {
+      currentScene = choice.next;
+      renderScene();
+    };
+    choicesDiv.appendChild(btn);
+  });
+}
+
+renderScene();
+
